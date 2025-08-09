@@ -33,6 +33,8 @@ def ingresar():
                             print("INGRESADO CORRECTAMENTE")
                         else:
                             print("ERROR: DATOS INGRESADOS NO VALIDOS")
+                else:
+                    print("ID YA EXISTENTE")
     except ValueError:
         print("ERROR: DATOS INGRESADOS NO VALIDOS")
 
@@ -60,5 +62,19 @@ def mostrar_ordenados_edad():
         print(f"{p['nombre']} - Edad: {p['edad']} - Categoría: {p['categoria']}")
 
 while True:
-    print("")
-
+    print("===MENU===")
+    print("1. Ingresar participantes")
+    print("2. Ver ordenados por nombre")
+    print("3. Ver ordenados por edad")
+    print("4. Salir")
+    opcion=input("Ingrese el numero de opcion: ")
+    match opcion:
+        case "1":
+            ingresar()
+        case "2":
+            mostrar_ordenados_nombre()
+        case "3":
+            mostrar_ordenados_edad()
+        case "4":
+            print("Saliendo...")
+            break
