@@ -18,7 +18,7 @@ def ingresar():
                 else:
                     print("Categoria incorrecta")
                     categoria=None
-                if(categoria not None)
+                if(categoria != None):
                     participanteDic[idAux]={
                         "nombre":nombreAux,
                         "edad":edadAux,
