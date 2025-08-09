@@ -36,4 +36,29 @@ def ingresar():
     except ValueError:
         print("ERROR: DATOS INGRESADOS NO VALIDOS")
 
-ingresar()
+def quicksort(lista, clave):
+    if len(lista) <= 1:
+        return lista
+    else:
+        pivote = lista[0]
+        menores = [x for x in lista[1:] if x[clave] <= pivote[clave]]
+        mayores = [x for x in lista[1:] if x[clave] > pivote[clave]]
+        return quicksort(menores, clave) + [pivote] + quicksort(mayores, clave)
+
+def mostrar_ordenados_nombre():
+    participantes_lista = list(participanteDic.values())
+    ordenados = quicksort(participantes_lista, "nombre")
+    print("--- Participantes ordenados por nombre ---")
+    for p in ordenados:
+        print(f"{p['nombre']} - Edad: {p['edad']} - Categoría: {p['categoria']}")
+
+def mostrar_ordenados_edad():
+    participantes_lista = list(participanteDic.values())
+    ordenados = quicksort(participantes_lista, "edad")
+    print("\n--- Participantes ordenados por edad ---")
+    for p in ordenados:
+        print(f"{p['nombre']} - Edad: {p['edad']} - Categoría: {p['categoria']}")
+
+while True:
+    print("")
+
